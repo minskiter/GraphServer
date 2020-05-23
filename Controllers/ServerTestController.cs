@@ -25,6 +25,16 @@ namespace Server.Controllers
                     List=list
             });
         }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ResultDto), 200)]
+        public ActionResult<ResultDto> BeastId(long id)
+        {
+            return Ok(new {
+                Id=id,
+                Message=$"Hello, user {id} !"
+            });
+        }
     }
 }
 
