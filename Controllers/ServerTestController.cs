@@ -10,20 +10,18 @@ namespace Server.Controllers
     {
         [HttpGet]
         [ProducesResponseType(typeof(ResultDto), 200)]
-        public ActionResult<ResultDto> HelloWorld()
+        public IEnumerable<ResultDto> HelloWorld()
         {
-            List<int> list = new List<int>();
-            list.Add(1);
-            list.Add(9);
-            list.Add(1);
-            list.Add(9);
-            list.Add(8);
-            list.Add(1);
-            list.Add(0);
-            return Ok(new {
-                    Message="Hello World",
-                    List=list
+            List<ResultDto> list = new List<ResultDto>();
+            list.Add(new ResultDto {
+                title = "A Title",
+                url = "https://umrninside.github.io/vue-cli/fhxtest/1.jpg"
             });
+            list.Add(new ResultDto {
+                title = "Title 2",
+                url = "https://umrninside.github.io/vue-cli/fhxtest/2.jpg"
+            });
+            return list;
         }
 
         [HttpGet("{id}")]
@@ -37,4 +35,3 @@ namespace Server.Controllers
         }
     }
 }
-
